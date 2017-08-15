@@ -7,7 +7,7 @@ app.use(morgan('combined'));
 
 var  content={
 title:'article-one | SHWETA BHOIR',
-heading: 'article-one',
+heading: 'article-two',
 date:' 5th sept 2015',
 content:`<p>
         this is my content for article two.this is my content for article two.this is my content for article two.this is my content for article two.this is my content for article two.
