@@ -5,11 +5,13 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-articletwo = {
-title:'article-one | SHWETA BHOIR',
-heading: 'article-two',
-date:' 5th sept 2015',
-content:`<p>
+var articles ={
+    "article-one" :{
+    title:'ARTICLE ONE | SHWETA BHOIR',
+    date:'5 th sep,2017',
+    heading:'ARTICLE-ONE',
+    content:`
+    <p>
         this is my content for article two.this is my content for article two.this is my content for article two.this is my content for article two.this is my content for article two.
         </p>
          <p>
@@ -17,7 +19,34 @@ content:`<p>
         </p>
          <p>
         this is my content for article two.this is my content for article two.this is my content for article two.this is my content for article two.this is my content for article two.
-        </p>`
+    
+    `
+    },
+    "article-two" :{
+        title:'ARTICLE two | SHWETA BHOIR',
+    date:'25 th sep,2017',
+    heading:'ARTICLE-ONE',
+    content:`
+    <p>
+        this is my content for article two.this is my content for article two.this is my content for article two.this is my content for article two.this is my content for article two.
+        </p>
+         
+    
+    `
+    },
+    "article-three" :{
+        
+        title:'ARTICLE three | SHWETA BHOIR',
+    date:'5 th sep,2017',
+    heading:'ARTICLE-ONE',
+    content:`
+    <p>
+       THIS IS CONTENT FOR ARTICLE THREE
+       </p>
+    
+    `
+    }
+};
     
     
 };
@@ -62,14 +91,15 @@ app.get('/', function (req, res) {
 
 
 
-app.get('/article-one',function(req,res)
+app.get('/:articleName',function(req,res)
 {
     res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
     
 });
 app.get('/article-two',function(req,res)
 {
-     res.send(createTemplate(articletwo));
+    var articleName = req.parames.articleName;
+     res.send(createTemplate(articles[articleName]));
     
 });
 app.get('/article-three',function(req,res)
