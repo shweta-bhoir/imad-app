@@ -69,7 +69,7 @@ app.get('/article-one',function(req,res)
 });
 app.get('/article-two',function(req,res)
 {
-     res.send(createTemplate(articletwo));
+     res.send(createTemplate(article-two));
     
 });
 app.get('/article-three',function(req,res)
